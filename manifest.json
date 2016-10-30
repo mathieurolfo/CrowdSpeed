@@ -1,0 +1,31 @@
+{
+  "name": "CrowdSpeed",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Allow users to flag portions of a video",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action" :
+  {
+    "default_icon" : "icon-19.png",
+    "default_title" : "Toggle YouTube comments"
+  },
+  "permissions" : [
+    "declarativeContent",
+    "activeTab"
+  ],
+  "content_scripts":
+  [
+      {
+          "matches": ["*://*.youtube.com/*"],
+          "js": ["content.js"],
+          "run_at": "document_end"
+      }
+  ],
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  }
+}
