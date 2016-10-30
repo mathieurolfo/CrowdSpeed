@@ -20,7 +20,7 @@
   [
       {
           "matches": ["*://*.youtube.com/*"],
-          "js": ["content.js"],
+          "js": ["node_modules/jquery/dist/jquery.js", "content.js"],
           "run_at": "document_end"
       }
   ],
