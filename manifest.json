@@ -14,7 +14,8 @@
   },
   "permissions" : [
     "declarativeContent",
-    "activeTab"
+    "activeTab",
+    "storage"
   ],
   "content_scripts":
   [
@@ -27,5 +28,10 @@
   "icons" : {
     "48" : "icon-48.png",
     "128" : "icon-128.png"
-  }
+  },
+  "web_accessible_resources": [
+    "timeline.html", 
+    "node_modules/vis/dist/vis.js",
+    "node_modules/vis/dist/vis.css"
+  ]
 }

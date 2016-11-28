@@ -4,10 +4,12 @@ console.log('running content script')
 
 function loadElements() {  
     var mainElem = document.getElementById("watch-header");
-   
-   // console.log($('video:not(#rewardvideo)')[0].width);
-    $("#watch-header")[0].innerHTML = generateFlaggerHTML();
     
+   // console.log($('video:not(#rewardvideo)')[0].width);
+
+    //$("#watch-header")[0].innerHTML += generateFlaggerHTML();
+    //console.log(chrome.extension.getURL('/timeline.html'));
+
     $('.flag-button').click(function(elem) {
     	console.log("clicked");
     	var listName = "#" + elem.currentTarget.id + "-flags";
@@ -52,12 +54,24 @@ function loadElements() {
     	"background-color": "yellow",
     	"color": "black"
     })
+
+    $('#flaggingwindow').css({
+        "height": "800px"
+    })
+
     var video = $('video:not(#rewardvideo)')
     
+    $("#watch-header").load(chrome.extension.getURL('/timeline.html'), function() {
+        // $(generateFlaggerHTML()).prependTo($("#watch-header"));
+
+        $("#watch-header")[0].innerHTML += generateFlaggerHTML();
+    });
+    
+
 }
 
 function generateFlaggerHTML() {
-	html = "<div>"
+	html = "<div id='flaggingwindow'>"
 	html += "<div class='header'>Click on the buttons to flag the current time!</div>"
 	html += "<button id='difficult' class='flag-button'>Difficult</button>"
 	html += "<span id='difficult-flags'></span>"
