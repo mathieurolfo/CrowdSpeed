@@ -10,6 +10,8 @@ function loadElements() {
     //$("#watch-header")[0].innerHTML += generateFlaggerHTML();
     //console.log(chrome.extension.getURL('/timeline.html'));
 
+    
+
     $("#watch-header").load(chrome.extension.getURL('/timeline.html'), function() {
         // $(generateFlaggerHTML()).prependTo($("#watch-header"));
         
@@ -39,7 +41,9 @@ function loadElements() {
         	"margin-right": "10px",
         	"margin-bottom": "5px",
         	"padding": "5px",
-        	"font-size": "16px"
+        	"font-size": "16px",
+            "border-radius": "4px"
+
         });
         $('.flag-button').hover(function() {
         	$(this).css("cursor", "pointer");
