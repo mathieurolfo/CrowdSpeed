@@ -16,6 +16,7 @@
     "declarativeContent",
     "activeTab",
     "storage"
+
   ],
   "content_scripts":
   [

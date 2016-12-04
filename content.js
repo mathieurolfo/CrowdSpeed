@@ -10,14 +10,28 @@ function loadElements() {
     //$("#watch-header")[0].innerHTML += generateFlaggerHTML();
     //console.log(chrome.extension.getURL('/timeline.html'));
 
-    
+
+    var flags = {}
+    flags["uninteresting"] = new Set()
+    flags["difficult"] = new Set()
 
     $("#watch-header").load(chrome.extension.getURL('/timeline.html'), function() {
-        // $(generateFlaggerHTML()).prependTo($("#watch-header"));
-        
+        //$(generateFlaggerHTML()).prependTo($("#watch-header"));
+        clicked = function(elem) {
+            console.log("i've been clicked!")
+        }
         //$("#watch-header")[0].innerHTML += generateFlaggerHTML();
+        
+        $('#export').click(function() {
+            var u = "u ";
+            for (let item of flags["uninteresting"]) u += item + " ";
+            var d = "   d ";
+            for (let item of flags["difficult"]) d += item + " ";
+            alert(u+d)
+        });
 
         $('.flag-button').click(function(elem) {
+
         	console.log("clicked");
         	var listName = "#" + elem.currentTarget.id + "-flags";
         	var rawTime = $('video:not(#rewardvideo)').get()[0].currentTime
@@ -26,9 +40,41 @@ function loadElements() {
         	if (secs < 10) {
         		secs = "0" + secs
         	}
-        	var currTime = mins + ":" + secs + "  "
-        	$(listName)[0].innerHTML += currTime
+        	var currTime = mins + ":" + secs 
+            
+            if(elem.target.id === "difficult") {
+                if (!flags["difficult"].has(currTime)) {
+                    var flag = "<span class='d-timestamp' style='padding: 2px;margin:2px;border-style: dotted;border-width:1px;font-size:14px'>" + currTime + "</span>"
+                    $(flag).insertAfter($(listName))
+                    flags["difficult"].add(currTime)
+                }
+            } else {
+                if (!flags["uninteresting"].has(currTime)) {
+                    var flag = "<span class='u-timestamp' style='padding: 2px;margin:2px;border-style: dotted;font-size:14px;border-width:1px;'>" + currTime + "</span>"
+                    $(flag).insertAfter($(listName))
+                    flags["uninteresting"].add(currTime)
+                }
+            }
+
+
+            $('.d-timestamp').click(function(elem) {
+                console.log(elem.target)
+                console.log(elem.target.parentNode)
+                elem.target.parentNode.removeChild(elem.target);
+                flags["difficult"].delete(elem.target.innerHTML)
+                
+            });
+            
+        	$('.u-timestamp').click(function(elem) {
+                console.log(elem.target)
+                console.log(elem.target.parentNode)
+                elem.target.parentNode.removeChild(elem.target);
+                flags["uninteresting"].delete(elem.target.innerHTML)
+                console.log(flags["uninteresting"])
+            });
         });
+
+        
 
         $('.header').css({
         	"font-size": "16px",
