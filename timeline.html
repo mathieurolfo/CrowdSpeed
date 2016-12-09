@@ -18,6 +18,7 @@
 <div id='flaggingwindow'>
  <div class='header'>Click on the buttons to flag the current time!</div>
  <div class='header'>Click on the timestamps to delete those flags.</div>
+ <div class='header'>Please flag at least one difficult and uninteresting moment in the video!</div>
   <button id='difficult' class='flag-button'>Difficult</button>
  <span id='difficult-flags'></span>
   <br>
@@ -47776,31 +47777,31 @@ return /******/ (function(modules) { // webpackBootstrap
   var container = document.getElementById('visualization');
 
   // Create a DataSet (allows two way data-binding)
-  var items = new vis.DataSet([
-    {id: 1, content: 'item 1', start: '2016-01-01T00:00:00', style:'color: red', editable:'false'},
-    {id: 2, content: 'item 2', start: '2016-01-01T00:00:01', style:'color: red', editable:'false'},
-    {id: 3, content: 'item 3', start: '2016-01-01T00:01:00', style:'color: red', editable:'false'},
-    {id: 4, content: 'item 4', start: '2016-01-01T00:03:20', style:'color: yellow', editable:'false'},
-    {id: 5, content: 'item 5', start: '2016-01-01T00:04:02', style:'color: yellow', editable:'false'},
-    {id: 6, content: 'item 6', start: '2016-01-01T00:05:00', style:'color: yellow', editable:'false'}
-  ]);
+  // var items = new vis.DataSet([
+  //   {id: 1, content: 'item 1', start: '2016-01-01T00:00:00', style:'color: red', editable:'false'},
+  //   {id: 2, content: 'item 2', start: '2016-01-01T00:00:01', style:'color: red', editable:'false'},
+  //   {id: 3, content: 'item 3', start: '2016-01-01T00:01:00', style:'color: red', editable:'false'},
+  //   {id: 4, content: 'item 4', start: '2016-01-01T00:03:20', style:'color: yellow', editable:'false'},
+  //   {id: 5, content: 'item 5', start: '2016-01-01T00:04:02', style:'color: yellow', editable:'false'},
+  //   {id: 6, content: 'item 6', start: '2016-01-01T00:05:00', style:'color: yellow', editable:'false'}
+  // ]);
 
-  // Configuration for the Timeline
-  var options = {
-    editable: false,
-    showMajorLabels: false,
-    moveable: false,
-    min: '2016-01-01T00:00:00',
-    max: '2016-01-01T06:00:00',
-    format: {
-      minorLabels: {
-        second:     'mm:ss'
-      }
-    }
-  };
+  // // Configuration for the Timeline
+  // var options = {
+  //   editable: false,
+  //   showMajorLabels: false,
+  //   moveable: false,
+  //   min: '2016-01-01T00:00:00',
+  //   max: '2016-01-01T06:00:00',
+  //   format: {
+  //     minorLabels: {
+  //       second:     'mm:ss'
+  //     }
+  //   }
+  // };
 
-  // Create a Timeline
-  var timeline = new vis.Timeline(container, items, options);
+  // // Create a Timeline
+  // var timeline = new vis.Timeline(container, items, options);
 
   
 </script>
