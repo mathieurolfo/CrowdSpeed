@@ -4,12 +4,15 @@ console.log('running content script')
 
 function loadElements() {  
     var mainElem = document.getElementById("watch-header");
+    $(mainElem).css({
+        "width": "1000px"
+    })
     
    // console.log($('video:not(#rewardvideo)')[0].width);
     //$("#watch-header")[0].innerHTML = generateFlaggerHTML();
     //$("#watch-header")[0].innerHTML += generateFlaggerHTML();
     //console.log(chrome.extension.getURL('/timeline.html'));
-
+    $("#watch7-sidebar-contents").remove();
 
     var flags = {}
     flags["uninteresting"] = new Set()

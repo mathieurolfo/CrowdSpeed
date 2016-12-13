@@ -10,7 +10,7 @@
   </style>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.js"></script> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.17.0/vis.min.css" rel="stylesheet" type="text/css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" rel="stylesheet" type="text/css"/>
   <!-- <link href="chrome-extension://pfiadnccejdfgdenfkdpdpndaacbcgab/node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css"/> -->
 </head>
 
@@ -38,10 +38,10 @@
  * A dynamic, browser-based visualization library.
  *
  * @version 4.17.0
- * @date    2016-11-05
+ * @date    2017-11-05
  *
  * @license
- * Copyright (C) 2011-2016 Almende B.V, http://almende.com
+ * Copyright (C) 2011-2017 Almende B.V, http://almende.com
  *
  * Vis.js is dual licensed under both
  *
@@ -12003,10 +12003,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
+  var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2017-04-22
    * http://hammerjs.github.io/
    *
-   * Copyright (c) 2016 Jorik Tangelder;
+   * Copyright (c) 2017 Jorik Tangelder;
    * Licensed under the MIT license */
   (function(window, document, exportName, undefined) {
     'use strict';
@@ -19588,7 +19588,7 @@ return /******/ (function(modules) { // webpackBootstrap
     this.components.forEach(function (component) {
       resized = component.redraw() || resized;
     });
-    var MAX_REDRAW = 5;
+    var MAX_REDRAW = 10;
     if (resized) {
       if (this.redrawCount < MAX_REDRAW) {
         this.body.emitter.emit('_change');
@@ -25176,7 +25176,7 @@ return /******/ (function(modules) { // webpackBootstrap
     var labelMinor;
     var xFirstMajorLabel = undefined;
     var count = 0;
-    var MAX = 1000;
+    var MAX = 10000;
     var className;
 
     step.start();
@@ -47776,32 +47776,47 @@ return /******/ (function(modules) { // webpackBootstrap
   // DOM element where the Timeline will be attached
   var container = document.getElementById('visualization');
 
-  // Create a DataSet (allows two way data-binding)
-  // var items = new vis.DataSet([
-  //   {id: 1, content: 'item 1', start: '2016-01-01T00:00:00', style:'color: red', editable:'false'},
-  //   {id: 2, content: 'item 2', start: '2016-01-01T00:00:01', style:'color: red', editable:'false'},
-  //   {id: 3, content: 'item 3', start: '2016-01-01T00:01:00', style:'color: red', editable:'false'},
-  //   {id: 4, content: 'item 4', start: '2016-01-01T00:03:20', style:'color: yellow', editable:'false'},
-  //   {id: 5, content: 'item 5', start: '2016-01-01T00:04:02', style:'color: yellow', editable:'false'},
-  //   {id: 6, content: 'item 6', start: '2016-01-01T00:05:00', style:'color: yellow', editable:'false'}
-  // ]);
+  //Create a DataSet (allows two way data-binding)
+  var items = new vis.DataSet([
+    {id: 1, content: 'item 1', start: '2017-01-01T08:07:47', style:'color: red', editable:'false'},
+    {id: 2, content: 'item 2', start: '2017-01-01T08:05:54', style:'color: red', editable:'false'},
+    {id: 3, content: 'item 3', start: '2017-01-01T08:07:47', style:'color: red', editable:'false'},
+    {id: 4, content: 'item 4', start: '2017-01-01T08:10:41', style:'color: red', editable:'false'},
+    {id: 5, content: 'item 5', start: '2017-01-01T08:12:29', style:'color: red', editable:'false'},
+    {id: 6, content: 'item 6', start: '2017-01-01T08:03:26', style:'color: yellow', editable:'false'},
+    {id: 7, content: 'item 7', start: '2017-01-01T08:03:45', style:'color: red', editable:'false'},
+    {id: 8, content: 'item 8', start: '2017-01-01T08:04:16', style:'color: red', editable:'false'},
+    {id: 9, content: 'item 9', start: '2017-01-01T08:12:43', style:'color: red', editable:'false'},
+    {id: 10, content: 'item 10', start: '2017-01-01T08:00:55', style:'color: red', editable:'false'},
+    {id: 11, content: 'item 11', start: '2017-01-01T08:07:38', style:'color: red', editable:'false'},
+    {id: 12, content: 'item 12', start: '2017-01-01T08:11:11', style:'color: red', editable:'false'},
+    {id: 13, content: 'item 13', start: '2017-01-01T08:14:18', style:'color: red', editable:'false'},
+    {id: 14, content: 'item 14', start: '2017-01-01T08:15:39', style:'color: red', editable:'false'},
+    {id: 15, content: 'item 15', start: '2017-01-01T08:04:24', style:'color: red', editable:'false'},
+    {id: 16, content: 'item 16', start: '2017-01-01T08:07:44', style:'color: red', editable:'false'},
+    {id: 17, content: 'item 17', start: '2017-01-01T08:12:19', style:'color: red', editable:'false'},
+    {id: 18, content: 'item 18', start: '2017-01-01T08:04:12', style:'color: red', editable:'false'},
+    {id: 19, content: 'item 19', start: '2017-01-01T08:12:34', style:'color: red', editable:'false'}
+  ]);
 
-  // // Configuration for the Timeline
-  // var options = {
-  //   editable: false,
-  //   showMajorLabels: false,
-  //   moveable: false,
-  //   min: '2016-01-01T00:00:00',
-  //   max: '2016-01-01T06:00:00',
-  //   format: {
-  //     minorLabels: {
-  //       second:     'mm:ss'
-  //     }
-  //   }
-  // };
+  // Configuration for the Timeline
+  var options = {
+    editable: false,
+    showMajorLabels: false,
+    //moveable: false,
+    //width: '100%',
+    min: '2017-01-01T08:00:00',
+    max: '2017-01-01T08:20:00',
+    format: {
+      minorLabels: {
+        second:     'mm:ss'
+      }
+    },
+    // timeAxis: {scale: 'minute', step: 2}
+  };
 
-  // // Create a Timeline
-  // var timeline = new vis.Timeline(container, items, options);
+  // Create a Timeline
+  var timeline = new vis.Timeline(container, items, options);
 
   
 </script>
